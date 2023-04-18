@@ -7,9 +7,9 @@ var guestsPath = path.join(__dirname, 'guests.json');
 var http = require('http');
 var port = process.env.PORT || 8000;
 
-var server = http.createServer(function(req, res) {
+var server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/guests') {
-    fs.readFile(guestsPath, 'utf8', function(err, guestsJSON) {
+    fs.readFile(guestsPath, 'utf8', (err, guestsJSON) => {
       if (err) {
         console.error(err.stack);
         res.statusCode = 500;
@@ -22,7 +22,7 @@ var server = http.createServer(function(req, res) {
     });
   }
   else if (req.method === 'GET' && req.url === '/guests/0') {
-    fs.readFile(guestsPath, 'utf8', function(err, guestsJSON) {
+    fs.readFile(guestsPath, 'utf8', (err, guestsJSON) => {
       if (err) {
         console.error(err.stack);
         res.statusCode = 500;
@@ -38,7 +38,7 @@ var server = http.createServer(function(req, res) {
     });
   }
   else if (req.method === 'GET' && req.url === '/guests/1') {
-    fs.readFile(guestsPath, 'utf8', function(err, guestsJSON) {
+    fs.readFile(guestsPath, 'utf8', (err, guestsJSON) => {
       if (err) {
         console.error(err.stack);
         res.statusCode = 500;
@@ -60,6 +60,6 @@ var server = http.createServer(function(req, res) {
   }
 });
 
-server.listen(port, function() {
+server.listen(port, () => {
   console.log('Listening on port', port);
 });

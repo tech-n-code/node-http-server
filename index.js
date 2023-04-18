@@ -1,7 +1,7 @@
 var http   = require('http');
 var routes = require('./routes');
 
-var handleRequest = function (req, res) {
+var handleRequest = (req, res) => {
   if(routes[req.url] !== undefined) {
     routes[req.url](req, res);
   } else {
@@ -11,6 +11,6 @@ var handleRequest = function (req, res) {
 
 var server = http.createServer(handleRequest);
 
-server.listen(8000, function() {
+server.listen(8000, () => {
   console.log("Listening...");
 });

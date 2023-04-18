@@ -1,9 +1,9 @@
 routes = {
-    '/special-message': function(req, res) {
+    '/special-message': (req, res) => {
       res.end("You're SPECIAL");
     },
   
-    '/non-special-message': function(req, res) {
+    '/non-special-message': (req, res) => {
       res.end("You're boring!");
     }
   };
